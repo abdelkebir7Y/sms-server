@@ -13,7 +13,7 @@ const socketServer = io(httpServer);
 
 const sockets = require("./sockets");
 
-const PORT = 3000;
+const PORT = 4000;
 
 httpServer.listen(PORT);
 
