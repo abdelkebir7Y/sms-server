@@ -1,7 +1,8 @@
-const http = require("http");
-const io = require("socket.io");
+import http from "http";
+import { Server } from "socket.io";
+import express from "express";
 
-const express = require("express");
+import sockets from "./sockets.js";
 
 const api = express();
 
@@ -9,9 +10,7 @@ api.use(express.json());
 
 const httpServer = http.createServer(api);
 
-const socketServer = io(httpServer);
-
-const sockets = require("./sockets");
+const socketServer = new Server(httpServer, { path: "/sms/socket.io" });
 
 const PORT = 4000;
 

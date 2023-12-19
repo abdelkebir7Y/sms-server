@@ -27,6 +27,6 @@ function listen(io) {
   });
 }
 
-module.exports = {
+export default {
   listen,
 };
