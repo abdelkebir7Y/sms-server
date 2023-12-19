@@ -1,8 +1,8 @@
-import http from "http";
-import { Server } from "socket.io";
-import express from "express";
+const http = require("http");
+const { Server } = require("socket.io");
+const express = require("express");
 
-import sockets from "./sockets.js";
+const sockets = require("./sockets.js");
 
 const api = express();
 
