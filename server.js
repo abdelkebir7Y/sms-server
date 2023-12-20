@@ -21,12 +21,12 @@ sockets.listen(socketServer);
 api.post("/sms", (req, res) => {
   const { phoneNumber, message } = req.body;
 
-  console.log("sms", phoneNumber, message);
+  const otp = Math.floor(100000 + Math.random() * 900000);
 
   socketServer
     .of("/sms-modem")
     .to("modem")
-    .emit("send-sms", phoneNumber, message);
+    .emit("send-sms", phoneNumber, message ?? `votre MTAXI code est : #${otp}`);
 
-  res.send("ok");
+  res.json(`${otp}`);
 });
