@@ -26,7 +26,11 @@ api.post("/sms", (req, res) => {
   socketServer
     .of("/sms-modem")
     .to("modem")
-    .emit("send-sms", phoneNumber, message ?? `votre MTAXI code est : #${otp}`);
+    .emit(
+      "send-sms",
+      phoneNumber,
+      message ? message : `votre MTAXI code est : #${otp}`
+    );
 
   res.json(`${otp}`);
 });
